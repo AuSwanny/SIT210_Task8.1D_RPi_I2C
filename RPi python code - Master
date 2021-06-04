@@ -1,0 +1,61 @@
+from smbus import SMBus
+from time import *
+addr = 0x8
+BUS = SMBus(1)
+num = 1
+
+print("Turn the LED on or off.")
+while num == 1:
+    ledstate = input(">>>>   ")
+    if ledstate == "0" or ledstate == "Off" or ledstate == "off" or ledstate == "of" or ledstate == "no" or ledstate == "No" or ledstate == "N" or ledstate == "n" or ledstate == "disactivate" or ledstate == "Disactivate":
+        BUS.write_byte(addr, 0x0)
+    elif ledstate == "1" or ledstate == "on" or ledstate == "On" or ledstate == "Yes" or ledstate == "yes" or ledstate == "Y" or ledstate == "Activate" or ledstate == "activate":
+        BUS.write_byte(addr, 0x1)
+    elif ledstate == "2":
+        BUS.write_byte(addr, 0x0)
+        sleep(0.1)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.1)
+        BUS.write_byte(addr, 0x0)
+        sleep(0.1)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.1)
+        BUS.write_byte(addr, 0x0)
+        sleep(0.1)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.1)
+        
+        BUS.write_byte(addr, 0x0)
+        sleep(0.2)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.2)
+        BUS.write_byte(addr, 0x0)
+        sleep(0.2)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.2)
+        BUS.write_byte(addr, 0x0)
+        sleep(0.2)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.2)
+        
+        BUS.write_byte(addr, 0x0)
+        sleep(0.4)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.4)
+        BUS.write_byte(addr, 0x0)
+        sleep(0.4)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.4)
+        BUS.write_byte(addr, 0x0)
+        sleep(0.4)
+        BUS.write_byte(addr, 0x1)
+        sleep(0.4)
+        
+        BUS.write_byte(addr, 0x0)
+        sleep(1)
+        BUS.write_byte(addr, 0x1)
+        sleep(1)
+        
+        BUS.write_byte(addr, 0x0)
+    else:
+        numb = 0
